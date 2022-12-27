@@ -10,5 +10,16 @@ if (arrSize <= 0)
 }
 else
 {
-    
+
+}
+
+void FillArr(string[] abc)
+{
+    int length = abc.Length;
+    int index = 0;
+    for (index = 0; index < abc.Length; index++)
+    {
+        Console.Write("Элемент массива: ");
+        abc[index] = Console.ReadLine()!;
+    }
 }
