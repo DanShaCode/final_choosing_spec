@@ -95,3 +95,5 @@ void PrintArr(string[] abc)
         else Console.Write($"{abc[index]}, ");
     }
 }
+
+// Протестировано 27.12.2022 в 12:26
