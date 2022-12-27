@@ -10,7 +10,19 @@ if (arrSize <= 0)
 }
 else
 {
-
+    string[] abc = new string[arrSize];
+    Console.WriteLine();
+    Console.WriteLine("Введите поочередно элементы массива.");
+    Console.WriteLine();
+    FillArr(abc);
+    int cancel = CheckArr(abc);
+    if (cancel == 1)
+    {
+        Console.WriteLine();
+        Console.WriteLine("#02 Ошибка элементов. Массив не может состоять из пустых строк.");
+    }
+    else
+    { }
 }
 
 void FillArr(string[] abc)
@@ -22,4 +34,20 @@ void FillArr(string[] abc)
         Console.Write("Элемент массива: ");
         abc[index] = Console.ReadLine()!;
     }
+}
+
+int CheckArr(string[] abc)
+{
+    int stop = 0;
+    int length = abc.Length;
+    int index = 0;
+    for (index = 0; index < abc.Length; index++)
+    {
+        if (abc[index] == String.Empty)
+        {
+            stop++;
+            break;
+        }
+    }
+    return stop;
 }
