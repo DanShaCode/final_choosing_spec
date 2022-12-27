@@ -1,7 +1,8 @@
 ﻿Console.WriteLine();
-Console.WriteLine("Данная программа создает одномерный массив из строк.");
+Console.WriteLine("Данная программа позволяет задать одномерный массив, состоящий из строк, а затем ");
+Console.WriteLine("из заданного массива из строк сформировать массив из строк, длина которых меньше либо равна трем символам.");
 Console.WriteLine();
-Console.Write("Задайте, пожалуйста, размер массива: ");
+Console.Write("Для начала задайте, пожалуйста, размер массива: ");
 int arrSize = Convert.ToInt32(Console.ReadLine());
 if (arrSize <= 0)
 {
@@ -22,7 +23,17 @@ else
         Console.WriteLine("#02 Ошибка элементов. Массив не может состоять из пустых строк.");
     }
     else
-    { }
+    {
+        Console.WriteLine();
+        Console.Write("Созданный массив: ");
+        PrintArr(abc);
+        Console.WriteLine();
+        string[] newArray = CreateNewArr(abc);
+        Console.WriteLine();
+        Console.Write("Сформированный массив: ");
+        PrintArr(newArray);
+        Console.WriteLine();
+    }
 }
 
 void FillArr(string[] abc)
@@ -50,4 +61,37 @@ int CheckArr(string[] abc)
         }
     }
     return stop;
+}
+
+string[] CreateNewArr(string[] abc)
+{
+    int count = 0;
+    foreach (string element in abc)
+    {
+        if (element.Length <= 3) count++;
+        else continue;
+    }
+    string[] newArray = new string[count];
+    int index = 0;
+    foreach (string element in abc)
+    {
+        if (element.Length <= 3)
+        {
+            newArray[index] = element;
+            index++;
+        }
+        else continue;
+    }
+    return newArray;
+}
+
+void PrintArr(string[] abc)
+{
+    int length = abc.Length;
+    int index = 0;
+    for (index = 0; index < abc.Length; index++)
+    {
+        if (index == abc.Length - 1) Console.Write($"{abc[index]}");
+        else Console.Write($"{abc[index]}, ");
+    }
 }
